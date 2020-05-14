@@ -1,3 +1,7 @@
+# Bluetooth executables and scripts
+#type bluetooth_loader, domain;
+#type bluetooth_loader_exec, exec_type, file_type;
+
 # Run init.qcom.bt.sh and init.program_bdaddr.sh
 allow bluetooth_loader bluetooth_loader_exec:file rx_file_perms;
 allow bluetooth_loader self:socket { create ioctl };

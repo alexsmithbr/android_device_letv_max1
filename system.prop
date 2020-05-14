@@ -1,4 +1,4 @@
-# system.prop for OnePlus2
+# system.prop for Max1
 
 # Audio
 vendor.audio_hal.period_size=192

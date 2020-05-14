@@ -18,22 +18,22 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_l_mr1.mk)
 
-# Inherit from oneplus2 device
-$(call inherit-product, device/oneplus/oneplus2/device.mk)
+# Inherit from max1 device
+$(call inherit-product, device/letv/max1/device.mk)
 
 # Inherit some common Lineage stuff.
 $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 
-PRODUCT_NAME := lineage_oneplus2
-PRODUCT_DEVICE := oneplus2
-PRODUCT_MANUFACTURER := OnePlus
-PRODUCT_BRAND := OnePlus
+PRODUCT_NAME := lineage_max1
+PRODUCT_DEVICE := max1
+PRODUCT_MANUFACTURER := Letv
+PRODUCT_BRAND := Letv
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
-    PRIVATE_BUILD_DESC="OnePlus2-user 6.0.1 MMB29M 7 dev-keys"
+    PRIVATE_BUILD_DESC="Max1-user 6.0.1 MMB29M 7 dev-keys"
 
-PRODUCT_GMS_CLIENTID_BASE := android-oneplus
+PRODUCT_GMS_CLIENTID_BASE := android-letv
 
-BUILD_FINGERPRINT := "OnePlus/OnePlus2/OnePlus2:6.0.1/MMB29M/1447858500:user/release-keys"
+BUILD_FINGERPRINT := "Letv/Max1/Max1:6.0.1/MMB29M/1447858500:user/release-keys"
 
-TARGET_VENDOR := oneplus
+TARGET_VENDOR := letv

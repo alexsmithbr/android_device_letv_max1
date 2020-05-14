@@ -21,14 +21,14 @@
 # definition file).
 #
 
-# Inherit from oppo-common
--include device/oppo/common/BoardConfigCommon.mk
+# Inherit from letv-common
+-include device/letv/common/BoardConfigCommon.mk
 
-TARGET_OTA_ASSERT_DEVICE := OnePlus2,oneplus2
+TARGET_OTA_ASSERT_DEVICE := Max1,max1,X900,x900
 
-PLATFORM_PATH := device/oneplus/oneplus2
+PLATFORM_PATH := device/letv/max1
 
-BOARD_VENDOR := oneplus
+BOARD_VENDOR := letv
 
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := MSM8994
@@ -54,17 +54,21 @@ TARGET_2ND_CPU_VARIANT := cortex-a53.a57
 TARGET_USES_64_BIT_BINDER := true
 
 # Kernel
-BOARD_KERNEL_CMDLINE := androidboot.hardware=qcom user_debug=31 msm_rtb.filter=0x37 ehci-hcd.park=3 lpm_levels.sleep_disabled=1 boot_cpus=0-3 loop.max_part=7
+# original cmdline
+#BOARD_KERNEL_CMDLINE := androidboot.hardware=qcom user_debug=31 msm_rtb.filter=0x37 ehci-hcd.park=3 lpm_levels.sleep_disabled=1 boot_cpus=0-3 loop.max_part=7
+BOARD_KERNEL_CMDLINE :=  androidboot.hardware=qcom user_debug=31 msm_rtb.filter=0x37 ehci-hcd.park=3 lpm_levels.sleep_disabled=1 boot_cpus=0-3 loop.max_part=7 mem=3G ramoops.mem_address=0xc0000000 ramoops.mem_size=0x00400000 ramoops.dump_oops=1 ramoops.ecc=1
 BOARD_KERNEL_BASE := 0x00000000
 BOARD_KERNEL_PAGESIZE := 4096
 BOARD_KERNEL_TAGS_OFFSET := 0x00000100
 BOARD_RAMDISK_OFFSET := 0x01000000
-BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
+BOARD_KERNEL_SEPARATED_DT := true
+BOARD_KERNEL_IMAGE_NAME := Image
 TARGET_KERNEL_ARCH := arm64
 TARGET_KERNEL_HEADER_ARCH := arm64
-TARGET_KERNEL_SOURCE := kernel/oneplus/msm8994
-TARGET_KERNEL_CONFIG := oneplus2_defconfig
+TARGET_KERNEL_SOURCE := kernel/letv/msm8994
+TARGET_KERNEL_CONFIG := max1-perf_defconfig
 TARGET_KERNEL_CROSS_COMPILE_PREFIX := aarch64-linux-android-
+TARGET_USES_UNCOMPRESSED_KERNEL := true
 
 # Audio
 AUDIO_FEATURE_ENABLED_ACDB_LICENSE := true
@@ -136,7 +140,7 @@ DEVICE_MATRIX_FILE := $(PLATFORM_PATH)/compatibility_matrix.xml
 TARGET_SPECIFIC_HEADER_PATH := $(PLATFORM_PATH)/include
 
 # Init
-TARGET_INIT_VENDOR_LIB := libinit_oneplus2
+TARGET_INIT_VENDOR_LIB := libinit_max1
 TARGET_PLATFORM_DEVICE_BASE := /devices/soc.0/
 
 # IPA
@@ -166,7 +170,7 @@ TARGET_TAP_TO_WAKE_NODE := "/proc/touchpanel/double_tap"
 BOARD_USES_QCOM_HARDWARE := true
 
 # Releasetools
-TARGET_RECOVERY_UPDATER_LIBS := librecovery_updater_oneplus2
+TARGET_RECOVERY_UPDATER_LIBS := librecovery_updater_max1
 TARGET_RELEASETOOLS_EXTENSIONS := $(PLATFORM_PATH)
 
 # SELinux
@@ -204,5 +208,10 @@ endif
 # Recovery
 TARGET_RECOVERY_FSTAB := $(PLATFORM_PATH)/rootdir/etc/fstab.qcom
 
+# twrp
+# Remember to https://github.com/TeamWin/android_bootable_recovery.git <lineage>/bootable/recovery
+TW_USE_TOOLBOX := true
+TW_THEME := portrait_hdpi
+
 # inherit from the proprietary version
-include vendor/oneplus/oneplus2/BoardConfigVendor.mk
+include vendor/letv/max1/BoardConfigVendor.mk

@@ -15,7 +15,7 @@
 /sys/bus/platform/devices/29.qcom,proximity(/.*)?                       u:object_r:sysfs_laser:s0
 
 # Core_ctl
-/(vendor|system/vendor)/bin/init\.oneplus2\.power\.sh                   u:object_r:init-power-sh_exec:s0
+/(vendor|system/vendor)/bin/init\.max1\.power\.sh                   u:object_r:init-power-sh_exec:s0
 /sys/devices/soc\.0/qcom,cpubw\.[0-9]+/devfreq/qcom,cpubw\.[0-9]+(/.*)? u:object_r:sysfs_devices_system_cpu:s0
 /sys/devices/soc\.0/qcom,mincpubw\.[0-9]+/devfreq/qcom,mincpubw\.[0-9]+(/.*)?        u:object_r:sysfs_devices_system_cpu:s0
 /sys/devices/virtual/net/rmnet_ipa0/queues/rx-0/rps_cpus                u:object_r:sysfs_devices_system_cpu:s0
@@ -36,7 +36,7 @@
 /sys/devices/soc\.0/qpnp-flash-led-(.*)?/leds(/.*)?                     u:object_r:sysfs_leds:s0
 /sys/devices/soc\.0/qpnp-wled-(.*)?/leds(/.*)?                          u:object_r:sysfs_leds:s0
 /sys/devices/soc\.0/[a-z0-9]+.qcom,mdss_mdp/[a-z0-9]+.qcom,mdss_mdp:qcom,mdss_fb_primary/leds/lcd-backlight(/.*)?    u:object_r:sysfs_leds:s0
-/(vendor|system/vendor)/bin/hw/android\.hardware\.light@2\.0-service.oneplus2    u:object_r:hal_light_default_exec:s0
+/(vendor|system/vendor)/bin/hw/android\.hardware\.light@2\.0-service.max1    u:object_r:hal_light_default_exec:s0
 
 # Net
 /sys/devices/virtual/net/rmnet_data[0-7]+/mtu                           u:object_r:sysfs_net:s0
@@ -54,4 +54,4 @@
 /sys/devices/soc\.0/6200000\.qcom,nvbackup_sharedmem/uio/uio4(/.*)?     u:object_r:sysfs_nv:s0
 
 # Touch features
-/(vendor|system/vendor)/bin/hw/vendor\.lineage\.touch@1\.0-service\.oneplus2     u:object_r:hal_lineage_touch_default_exec:s0
+/(vendor|system/vendor)/bin/hw/vendor\.lineage\.touch@1\.0-service\.max1     u:object_r:hal_lineage_touch_default_exec:s0

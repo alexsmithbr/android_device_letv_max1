@@ -14,7 +14,7 @@
 # limitations under the License.
 #
 
-$(call inherit-product, vendor/oneplus/oneplus2/oneplus2-vendor.mk)
+$(call inherit-product, vendor/letv/max1/max1-vendor.mk)
 
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
@@ -146,7 +146,7 @@ PRODUCT_PACKAGES += \
 
 # Doze mode
 PRODUCT_PACKAGES += \
-    OneplusDoze
+    LetvDoze
 
 # Fingerprint sensor
 PRODUCT_PACKAGES += \
@@ -197,7 +197,7 @@ PRODUCT_PACKAGES += \
 
 # Lights
 PRODUCT_PACKAGES += \
-    android.hardware.light@2.0-service.oneplus2
+    android.hardware.light@2.0-service.max1
 
 # LiveDisplay
 PRODUCT_PACKAGES += \
@@ -238,7 +238,7 @@ PRODUCT_COPY_FILES += \
 # Ramdisk
 PRODUCT_PACKAGES += \
     fstab.qcom \
-    init.oneplus2.power.sh \
+    init.max1.power.sh \
     init.program_bdaddr.sh \
     init.qcom.bt.sh \
     init.qcom.power.rc \
@@ -246,12 +246,12 @@ PRODUCT_PACKAGES += \
     init.qcom.sh \
     init.qcom.usb.rc \
     init.qcom.usb.sh \
-    init.recovery.oneplus2.rc \
+    init.recovery.max1.rc \
     ueventd.qcom.rc
 
 # Recovery
 PRODUCT_PACKAGES += \
-    librecovery_updater_oneplus2
+    librecovery_updater_max1
 
 # RenderScript
 PRODUCT_PACKAGES += \
@@ -284,7 +284,7 @@ PRODUCT_PACKAGES += \
 
 # Touch
 PRODUCT_PACKAGES += \
-    vendor.lineage.touch@1.0-service.oneplus2
+    vendor.lineage.touch@1.0-service.max1
 
 # Trust HAL
 PRODUCT_PACKAGES += \
@@ -317,5 +317,5 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/wifi/WCNSS_cfg.dat:$(TARGET_COPY_OUT_SYSTEM)/etc/wifi/WCNSS_cfg.dat \
     $(LOCAL_PATH)/wifi/WCNSS_qcom_cfg.ini:$(TARGET_COPY_OUT_SYSTEM)/etc/wifi/WCNSS_qcom_cfg.ini
 
-# Inherit from oppo-common
-$(call inherit-product, device/oppo/common/common.mk)
+# Inherit from letv-common
+$(call inherit-product, device/letv/common/common.mk)

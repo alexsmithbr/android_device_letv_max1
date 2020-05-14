@@ -194,6 +194,6 @@ Value * VerifyBasebandFn(const char *name, State *state,
     return StringValue(strdup(ret ? "1" : "0"));
 }
 
-void Register_librecovery_updater_oneplus2() {
-    RegisterFunction("oneplus2.verify_baseband", VerifyBasebandFn);
+void Register_librecovery_updater_max1() {
+    RegisterFunction("max1.verify_baseband", VerifyBasebandFn);
 }

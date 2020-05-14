@@ -57,35 +57,45 @@ void property_override_dual(char const system_prop[], char const vendor_prop[], 
 
 void vendor_load_properties() {
     struct sysinfo sys;
-    int rf_version = stoi(android::base::GetProperty("ro.boot.rf_v1", ""));
+// FIXME: the following is inheritance of oneplus2 and maybe we
+// have to fix it to work accordingly to max1 stuff.
+//   int rf_version = stoi(android::base::GetProperty("ro.boot.rf_v1", ""));
+//
+//   switch (rf_version) {
+//   case 14:
+//       /* China model */
+//       property_override_dual("ro.product.model", "ro.product.vendor.model", "ONE A2001");
+//       property_set("ro.rf_version", "TDD_FDD_Ch_All");
+//       property_set("telephony.lteOnCdmaDevice", "1");
+//       property_set("ro.telephony.default_network", "20,20");
+//       break;
+//   case 24:
+//       /* Europe / Asia model */
+//       property_override_dual("ro.product.model", "ro.product.vendor.model", "ONE A2003");
+//       property_set("ro.rf_version", "TDD_FDD_Eu");
+//       property_set("ro.telephony.default_network", "9,9");
+//       break;
+//   case 34:
+//       /* America model */
+//       property_override_dual("ro.product.model", "ro.product.vendor.model", "ONE A2005");
+//       property_set("ro.rf_version", "TDD_FDD_Am");
+//       property_set("telephony.lteOnCdmaDevice", "1");
+//       property_set("ro.telephony.default_network", "9,9");
+//       break;
+//   default:
+//       LOG(ERROR) << __func__ << ": unexcepted rf version!";
+//   }
 
-    switch (rf_version) {
-    case 14:
-        /* China model */
-        property_override_dual("ro.product.model", "ro.product.vendor.model", "ONE A2001");
-        property_set("ro.rf_version", "TDD_FDD_Ch_All");
-        property_set("telephony.lteOnCdmaDevice", "1");
-        property_set("ro.telephony.default_network", "20,20");
-        break;
-    case 24:
-        /* Europe / Asia model */
-        property_override_dual("ro.product.model", "ro.product.vendor.model", "ONE A2003");
-        property_set("ro.rf_version", "TDD_FDD_Eu");
-        property_set("ro.telephony.default_network", "9,9");
-        break;
-    case 34:
-        /* America model */
-        property_override_dual("ro.product.model", "ro.product.vendor.model", "ONE A2005");
-        property_set("ro.rf_version", "TDD_FDD_Am");
-        property_set("telephony.lteOnCdmaDevice", "1");
-        property_set("ro.telephony.default_network", "9,9");
-        break;
-    default:
-        LOG(ERROR) << __func__ << ": unexcepted rf version!";
-    }
+    /* FIXME: the above should be sorted out, then we should remove the following
+     * five lines and use the modified version of the above 'switch'. */
+    /* China model */
+    property_override_dual("ro.product.model", "ro.product.vendor.model", "ONE A2001");
+    property_set("ro.rf_version", "TDD_FDD_Ch_All");
+    property_set("telephony.lteOnCdmaDevice", "1");
+    property_set("ro.telephony.default_network", "20,20");
 
-    property_override("ro.build.product", "OnePlus2");
-    property_override_dual("ro.product.device", "ro.product.vendor.device", "OnePlus2");
+    property_override("ro.build.product", "Max1");
+    property_override_dual("ro.product.device", "ro.product.vendor.device", "Max1");
 
     /* Dalvik props */
     sysinfo(&sys);

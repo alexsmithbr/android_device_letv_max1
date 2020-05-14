@@ -21,7 +21,7 @@ LOCAL_MODULE_TAGS := optional
 LOCAL_C_INCLUDES := \
     system/core/base/include \
     system/core/init
-LOCAL_SRC_FILES := init_oneplus2.cpp
-LOCAL_MODULE := libinit_oneplus2
+LOCAL_SRC_FILES := init_max1.cpp
+LOCAL_MODULE := libinit_max1
 
 include $(BUILD_STATIC_LIBRARY)

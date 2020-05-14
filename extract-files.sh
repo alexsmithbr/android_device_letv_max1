@@ -18,8 +18,8 @@
 
 set -e
 
-DEVICE=oneplus2
-VENDOR=oneplus
+DEVICE=max1
+VENDOR=letv
 
 # Load extractutils and do some sanity checks
 MY_DIR="${BASH_SOURCE%/*}"

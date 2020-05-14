@@ -23,7 +23,7 @@ on init
     chown system system /proc/touchpanel/up_swipe
     chmod 0660 /proc/touchpanel/up_swipe
 
-service vendor.touch-hal-1-0 /vendor/bin/hw/vendor.lineage.touch@1.0-service.oneplus2
+service vendor.touch-hal-1-0 /vendor/bin/hw/vendor.lineage.touch@1.0-service.max1
     class hal
     user system
     group system

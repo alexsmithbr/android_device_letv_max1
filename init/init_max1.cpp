@@ -89,7 +89,7 @@ void vendor_load_properties() {
     /* FIXME: the above should be sorted out, then we should remove the following
      * five lines and use the modified version of the above 'switch'. */
     /* China model */
-    property_override_dual("ro.product.model", "ro.product.vendor.model", "ONE A2001");
+    property_override_dual("ro.product.model", "ro.product.vendor.model", "Max1 CN");
     property_set("ro.rf_version", "TDD_FDD_Ch_All");
     property_set("telephony.lteOnCdmaDevice", "1");
     property_set("ro.telephony.default_network", "20,20");

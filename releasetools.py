@@ -33,6 +33,6 @@ def AddBasebandAssertion(info, input_zip):
     timestamp, firmware_version = m.group(1).rstrip().split(',')
     if ((len(timestamp) and '*' not in timestamp) and \
         (len(firmware_version) and '*' not in firmware_version)):
-      cmd = 'assert(max1.verify_baseband("{}") == "1" || abort("ERROR: This package requires firmware from OOS {} or newer. Please upgrade firmware and retry!"););'
+      cmd = 'assert(max1.verify_baseband("{}") == "1" || abort("ERROR: This package requires firmware {} or newer. Please upgrade firmware and retry!"););'
       info.script.AppendExtra(cmd.format(timestamp, firmware_version))
   return

@@ -12,26 +12,50 @@ We have three projects involved:
 2. https://github.com/alexsmithbr/android_device_letv_common.git, which you should checkout to devices/letv/common
 3. https://github.com/alexsmithbr/android_kernel_letv_msm8994.git, which you should checkout to kernel/letv/msm8994
 
-Once you have the above set up, you have to tell LineageOS you have this device ready to be built. You do this with:
+Once you have the above set up, extract the proprietary blobs and set up the device:
 
 ```bash
 cd <lineage_root>
 source build/envsetup.sh
-./device/letv/max1/setup-makefiles.sh
+cd device/letv/max1
 ```
 
-At this point, you can either:
+**Option 1:** from plugged-in device
+
+Ensure your device is plugged-in and accessible via adb, then:
+
+```bash
+./extract-files.sh
+```
+
+**Option 2:** from a local tree
+
+Supposing your device tree lies at ~/android/system_dump/max1_complete_tree/:
+
+```bash
+./extract-files.sh ~/android/system_dump/max1_complete_tree/
+```
+
+The above will also run setup-makefiles.sh, so the device will be seen by breakfast.
+
+Now you can either:
 
 ```bash
 breakfast lineage_max1-eng
 breakfast lineage_max1-userdebug
 breakfast lineage_max1-user
 ```
+And then build.
 
-And then either:
+To create a recovery image:
 
 ```bash
 mka recoveryimage
+```
+
+To do a complete build:
+
+```bash
 mka bacon
 ```
 
